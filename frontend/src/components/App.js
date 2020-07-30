@@ -14,10 +14,10 @@ const App = () => {
     };
 
     ws.onmessage = (event) => {
-      const { data, alert } = JSON.parse(event.data);
+      const { currentCPUInfo, alert } = JSON.parse(event.data);
       updateTicks(prevTicks => {
         const newTicks = prevTicks.length === 60 ? prevTicks.slice(1) : prevTicks;
-        return [...newTicks, data];
+        return [...newTicks, currentCPUInfo];
       })
 
       if(alert){
