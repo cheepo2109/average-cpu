@@ -1,0 +1,9 @@
+.app-wrapper{
+    width: 80%;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.title-wrapper{
+    min-height: 100px;
+}

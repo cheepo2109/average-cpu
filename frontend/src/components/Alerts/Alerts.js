@@ -5,8 +5,8 @@ const Alerts = ({alerts}) => {
         <div>
         {
             alerts.map(alert => (
-              <div>
-                <div>{alert.message}</div>
+              <div key={alert.timestamp}>
+                <div>{alert.type}</div>
                 <div>{alert.timestamp}</div>
               </div>
             ))
