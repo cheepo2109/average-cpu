@@ -45,7 +45,7 @@ class LoadObserver {
         if(this.twoMinuteWindow.length === 0 && this.isAlert){
             this.isAlert = false;
             return {
-                message: "YOUR CPU HAS RECOVERED",
+                type: "recovery",
                 timestamp: currentCPUInfo.timestamp
             };
         }
@@ -54,7 +54,7 @@ class LoadObserver {
         if(this.twoMinuteWindow.length === 12 && !this.isAlert){
             this.isAlert = true;
             return {
-                message: "UNDER HIGH LOAD",
+                type: "warning",
                 timestamp: this.twoMinuteWindow[0].timestamp
             }
         }

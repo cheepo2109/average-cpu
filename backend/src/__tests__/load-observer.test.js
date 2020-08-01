@@ -130,7 +130,7 @@ describe('getAlert', () => {
         }
 
         const alert = loadObserver.getAlert(arrayOfHighCPUObjects[arrayOfHighCPUObjects.length-1]);
-        expect(alert).toMatchObject({ message: 'UNDER HIGH LOAD', timestamp: 1596123545035 })
+        expect(alert).toMatchObject({ type: 'warning', timestamp: 1596123545035 })
     });
 
     it('should return alert with message that cpu is recovered if average cpu load was lower than 1 for 2 minutes', () => {
@@ -179,7 +179,7 @@ describe('getAlert', () => {
         }
 
         const alert = loadObserver.getAlert(arrayOfLowCPUObjects[arrayOfLowCPUObjects.length-1]);
-        expect(alert).toMatchObject({ message: 'YOUR CPU HAS RECOVERED', timestamp: 1596123545035 })
+        expect(alert).toMatchObject({ type: 'recovery', timestamp: 1596123545035 })
     });
 
 });
