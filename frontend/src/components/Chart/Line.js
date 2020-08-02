@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef} from 'react';
+import React, { useEffect, useRef} from 'react';
 import { select } from 'd3-selection';
 
 const Line = ({ data, lineGenerator, initialData }) => {
@@ -23,11 +23,9 @@ const Line = ({ data, lineGenerator, initialData }) => {
         .attr('d', lineGenerator);
   },[data, lineGenerator])
 
- return(
-   <Fragment>
-    <g className="line-group" ref={ref} />;
-   </Fragment>
- )
+ return <g className="line-group" ref={ref} />;
+ 
 }
 
 export default Line;
+//  <line d={lineGenerator(data) />

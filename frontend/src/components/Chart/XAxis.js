@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { select } from "d3-selection";
 import { axisTop } from "d3-axis";
-import { timeFormat } from 'd3-time-format';
 import { timeMinute } from 'd3-time';
+import { formatTick } from '../../utils';
 const XAxis = ({ scale, height }) => {
     const ref = useRef(null);
 
@@ -10,7 +10,7 @@ const XAxis = ({ scale, height }) => {
         const node = ref.current;
         const axis = axisTop(scale)
             .tickSize(height)
-            .tickFormat(timeFormat('%I:%M'))
+            .tickFormat(formatTick)
             .ticks(timeMinute);
         
         select(node)
