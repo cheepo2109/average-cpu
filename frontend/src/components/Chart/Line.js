@@ -11,7 +11,7 @@ const Line = ({ data, lineGenerator, initialData }) => {
         .datum(initialData)
         .attr('id', 'line')
         .attr('stroke', 'steelblue')
-        .attr('stroke-width', 2)
+        .attr('stroke-width', 3)
         .attr('fill', 'none')
         .attr('d', lineGenerator);
 

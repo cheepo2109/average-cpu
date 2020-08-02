@@ -3,18 +3,25 @@ import { formatTooltip } from '../../utils';
 const Tooltip = ({tooltipData, height}) => {
     return (
         tooltipData && (
-            <g className="line-group">
+            <g className="tooltip-group">
                 <foreignObject
-                        x={tooltipData.x ? tooltipData.x + 10 : 0} 
-                        y={tooltipData.y ? tooltipData.y + 10 : 0} 
-                        width={100} height={50}>
-                    <div>
-                        <div>
-                            {tooltipData.load}
-                        </div>
-                        <div>
-                            {tooltipData.timestamp && formatTooltip(tooltipData.timestamp)}
-                        </div>
+                        className="tooltip-wrapper"
+                        x={tooltipData.x ? tooltipData.x + 10 : -100} 
+                        y={tooltipData.y ? tooltipData.y + 10 : -100} 
+                        width={200} height={70}>
+                    <div className="tooltip">
+                        <p className="tooltip__load">
+                            {
+                                tooltipData.load && 
+                                `Average load: ${tooltipData.load}`
+                            }
+                        </p>
+                        <p className="tooltip__time">
+                            {
+                                tooltipData.timestamp &&
+                                `Time: ${formatTooltip(tooltipData.timestamp)}`
+                            }
+                        </p>
                     </div>
                 </foreignObject>
                 <line 

@@ -1,0 +1,24 @@
+.chart-container{
+    width:100%;
+    overflow: visible;
+}
+
+.chart:hover{
+    cursor: crosshair;
+}
+
+.tooltip-wrapper{
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #e5e8ed;
+}
+
+.tooltip{
+    padding: 0.5rem;
+}
+
+.tooltip__load{
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+}

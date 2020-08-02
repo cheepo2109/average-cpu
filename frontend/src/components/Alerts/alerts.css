@@ -1,0 +1,30 @@
+.alerts{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 8px;
+    width: 100%;
+}
+
+.alert{
+    width: 100%;
+    min-height: 90px;
+    border-radius: 5px;
+    padding: 1rem;
+    color: white;
+}
+.alert--warning{
+    background-color: var(--alert-warning);
+}
+.alert--recovery{
+    background-color: var(--alert-recovery);
+}
+
+.alert .alert__message{
+    font-size: 1.6rem;
+    line-height: 2.1rem;
+    font-weight: bold;
+}
+
+.alert .alert__time{
+    font-size: 1.2rem;
+}

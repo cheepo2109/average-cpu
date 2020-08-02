@@ -8,13 +8,14 @@ import Line from './Line';
 import XAxis from './XAxis';
 import YAxis from './YAxis';
 import Tooltip from './Tooltip';
-
+import './linechart.css';
 const LineChart = ({data}) => {
 
     const ref = useRef(null);
     const svgRef = useRef(null);
     const [ parentWidth, setParentWidth ] = useState(0);
     const [ tooltipData, updateTooltipData] = useState({});
+    
     const margins = {
         top: 20,
         right: 20,
@@ -51,7 +52,7 @@ const LineChart = ({data}) => {
     const initialData = [{
         timestamp: "",
         load: 0
-        }];
+    }];
   
     useLayoutEffect(()=> {
         const updateParentWidth = () => {
@@ -90,10 +91,10 @@ const LineChart = ({data}) => {
       }, [svgRef, data, xScale]);
 
     return (
-        <div ref={ref} style={{width:"100%"}}>
+        <div className="chart-container" ref={ref}>
             <svg
                 ref={svgRef}
-                className="lineChartSvg"
+                className="chart"
                 width={width + margins.left + margins.right}
                 height={height + margins.top + margins.bottom}>
                 <g transform={`translate(${margins.left}, ${margins.top})`}>

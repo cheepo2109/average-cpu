@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import { Alerts}  from '../Alerts';
+import { Alerts }  from '../Alerts';
 import { LineChart } from '../Chart';
 import './app.css';
 const ws = new WebSocket('ws://localhost:4444');
@@ -7,9 +7,8 @@ const ws = new WebSocket('ws://localhost:4444');
 const App = () => { 
   const [ cpuData, updateCpuData ] = useState([]);
   const [ alerts, updateAlerts ] = useState([]);
-
+  const current = cpuData[cpuData.length-1];
   useEffect(() => {
-
     ws.onopen = () => {
       ws.send("started");
     };
@@ -26,9 +25,6 @@ const App = () => {
     };
   
   },[]);
-  useEffect(() => {
-    console.log(alerts)
-  }, [alerts])
   return (
     <div className="app-wrapper">
         <div className="title-wrapper">
@@ -37,7 +33,7 @@ const App = () => {
                 <h1> Looks like you just started the app!</h1>
                 <h2>Please wait. Data about your CPU load will appear shortly. *Elevator music*</h2>
               </Fragment>
-            : <h1>Here's your current CPU Load</h1>
+            : <h1>Your current CPU load is {current.load}</h1>
           }
         </div>
       <LineChart data={cpuData}/>
