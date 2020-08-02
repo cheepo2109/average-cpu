@@ -13,6 +13,11 @@ class LoadObserver {
     //methods for testing only
     getIsAlert = () => this.isAlert;
 
+    clear = () => {
+        this.highLoadWindow = [];
+        this.isAlert = false;
+    }
+    
     getAverageCPUData = () => {
         const cpus = os.cpus().length
         const loadAverage = os.loadavg()[0] / cpus;

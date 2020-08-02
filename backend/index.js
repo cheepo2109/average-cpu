@@ -26,6 +26,7 @@ wss.on('connection', (ws) => {
     })
     ws.on('close', function () {
         console.log('stopping client interval');
+        loadObserver.clear();
         ws.terminate();
     });
 });

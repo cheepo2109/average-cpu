@@ -20,7 +20,7 @@ const Area = ({ data, areaGenerator, initialData }) => {
   },[data, areaGenerator])
 
  return <g className="area-group" ref={ref} />;
-  
+
 }
 
 export default Area;
