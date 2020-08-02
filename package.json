@@ -1,0 +1,20 @@
+{
+  "name": "datadog-adil",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "setup": "sh install.sh",
+    "start": "(cd backend && npm run start) & (cd frontend && yarn start)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheepo2109/average-cpu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheepo2109/average-cpu/issues"
+  },
+  "homepage": "https://github.com/cheepo2109/average-cpu#readme"
+}
