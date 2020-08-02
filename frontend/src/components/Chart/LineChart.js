@@ -18,9 +18,9 @@ const LineChart = ({data}) => {
     
     const margins = {
         top: 20,
-        right: 20,
+        right: 40,
         bottom: 20,
-        left: 20,
+        left: 40,
     };
 
     const width = parentWidth - margins.left - margins.right;

@@ -1,36 +1,7 @@
 import React from 'react';
+import { formatTooltip } from '../../utils';
 import './alerts.css'
-const Alerts = () => {
-    const alerts = [
-      {
-        type: "warning",
-        timestamp:"2141"
-      },
-      {
-        type: "recovery",
-        timestamp:"123456"
-      },
-      {
-        type: "warning",
-        timestamp:"21985"
-      },
-      {
-        type: "recovery",
-        timestamp:"21521"
-      },
-      {
-        type: "warning",
-        timestamp:"14214"
-      },
-      {
-        type: "recovery",
-        timestamp:"124421"
-      },
-      {
-        type: "warning",
-        timestamp:"142214"
-      },
-    ]
+const Alerts = ({alerts}) => {
     const messages = {
       warning: {
         message: "High CPU usage",
@@ -50,7 +21,7 @@ const Alerts = () => {
                   {`[${index+1}] ${messages[alert.type].message}`}
                 </p>
                 <p className="alert__time">
-                  {`${messages[alert.type].time} ${alert.timestamp}`}
+                  {`${messages[alert.type].time} ${formatTooltip(alert.timestamp)}`}
                 </p>
               </div>
             ))

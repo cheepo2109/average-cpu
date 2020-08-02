@@ -22,20 +22,20 @@ describe('getAverageCPUData', () => {
 
 })
 
-describe('handleTwoMinuteWindow', () => {
+describe('handleHighLoadWindow', () => {
 
     it('should not add load to window if it is less than 1', () => {
         const data = { load: 0.3, timestamp: 1596123545035 };
-        loadObserver.handleTwoMinuteWindow(data);
-        const twoMinuteWindow = loadObserver.getTwoMinuteWindow();
-        expect(twoMinuteWindow).toHaveLength(0);
+        loadObserver.handleHighLoadWindow(data);
+        const getHighLoadWindow = loadObserver.getHighLoadWindow();
+        expect(getHighLoadWindow).toHaveLength(0);
     });
 
     it('should add load to window if it is more than 1', () => {
         const data = { load: 1, timestamp: 1596123545035 };
-        loadObserver.handleTwoMinuteWindow(data);
-        const twoMinuteWindow = loadObserver.getTwoMinuteWindow();
-        expect(twoMinuteWindow).toHaveLength(1);
+        loadObserver.handleHighLoadWindow(data);
+        const getHighLoadWindow = loadObserver.getHighLoadWindow();
+        expect(getHighLoadWindow).toHaveLength(1);
     });
 
     it('window should not have more that 12 items', () => {
@@ -56,10 +56,10 @@ describe('handleTwoMinuteWindow', () => {
             { load: 1.2, timestamp: 1596123545035 },
         ];
         for(let data of arrayOfDataObjects){
-            loadObserver.handleTwoMinuteWindow(data);
+            loadObserver.handleHighLoadWindow(data);
         }
-        const twoMinuteWindow = loadObserver.getTwoMinuteWindow();
-        expect(twoMinuteWindow).toHaveLength(12);
+        const getHighLoadWindow = loadObserver.getHighLoadWindow();
+        expect(getHighLoadWindow).toHaveLength(12);
     });
 
     it('window be empty after cooling down', () => {
@@ -78,7 +78,7 @@ describe('handleTwoMinuteWindow', () => {
             { load: 2.1, timestamp: 1596123545035 }
         ];
         for(let data of arrayOfHighCPUObjects){
-            loadObserver.handleTwoMinuteWindow(data);
+            loadObserver.handleHighLoadWindow(data);
         }
         const arrayOfLowCPUObjects = [
             { load: 0.9, timestamp: 1596123545035 },
@@ -95,10 +95,10 @@ describe('handleTwoMinuteWindow', () => {
             { load: 0.1, timestamp: 1596123545035 }
         ];
         for(let data of arrayOfLowCPUObjects){
-            loadObserver.handleTwoMinuteWindow(data);
+            loadObserver.handleHighLoadWindow(data);
         }
-        const twoMinuteWindow = loadObserver.getTwoMinuteWindow();
-        expect(twoMinuteWindow).toHaveLength(0);
+        const getHighLoadWindow = loadObserver.getHighLoadWindow();
+        expect(getHighLoadWindow).toHaveLength(0);
     });
 });
 
@@ -126,7 +126,7 @@ describe('getAlert', () => {
         ];
 
         for(let data of arrayOfHighCPUObjects){
-            loadObserver.handleTwoMinuteWindow(data);
+            loadObserver.handleHighLoadWindow(data);
         }
 
         const alert = loadObserver.getAlert(arrayOfHighCPUObjects[arrayOfHighCPUObjects.length-1]);
@@ -157,7 +157,7 @@ describe('getAlert', () => {
         ];
 
         for(let data of arrayOfHighCPUObjects){
-            loadObserver.handleTwoMinuteWindow(data);
+            loadObserver.handleHighLoadWindow(data);
         }
         const arrayOfLowCPUObjects = [
             { load: 0.9, timestamp: 1596123545035 },
@@ -175,7 +175,7 @@ describe('getAlert', () => {
         ];
 
         for(let data of arrayOfLowCPUObjects){
-            loadObserver.handleTwoMinuteWindow(data);
+            loadObserver.handleHighLoadWindow(data);
         }
 
         const alert = loadObserver.getAlert(arrayOfLowCPUObjects[arrayOfLowCPUObjects.length-1]);

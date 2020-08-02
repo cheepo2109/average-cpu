@@ -10,18 +10,19 @@ const PORT = 4444;
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
+const INTERVAL = 10000;
 
 wss.on('connection', (ws) => {
+    console.log("Received connection");
     ws.on('message', () => {
+        console.log("Received Message");
         setInterval(() => {
             const { currentCPUInfo, alert } = loadObserver.getIntervalInfo();
             ws.send(JSON.stringify({
                 currentCPUInfo,
-                alert
+                alert,
             }));
-
-        }, 10000);
- 
+        }, INTERVAL);
     })
     ws.on('close', function () {
         console.log('stopping client interval');

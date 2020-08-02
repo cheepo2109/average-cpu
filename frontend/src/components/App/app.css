@@ -5,5 +5,8 @@
 }
 
 .title-wrapper{
-    min-height: 90px;
+    background-color: rgb(19, 38, 96);
+    border-radius: 5px;
+    color: white;
+    padding: 1rem;
 }

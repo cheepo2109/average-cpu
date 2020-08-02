@@ -10,7 +10,7 @@ const App = () => {
   const current = cpuData[cpuData.length-1];
   useEffect(() => {
     ws.onopen = () => {
-      ws.send("started");
+      ws.send("connected to websocket");
     };
 
     ws.onmessage = ({ data }) => {
@@ -22,7 +22,12 @@ const App = () => {
       if(alert){
         updateAlerts(prevAlerts => [alert,...prevAlerts])
       }
+      console.log(JSON.parse(data));
     };
+
+    ws.onclose = () => {
+      console.log("connection closed");
+    }
   
   },[]);
   return (
