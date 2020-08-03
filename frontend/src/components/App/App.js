@@ -22,7 +22,6 @@ const App = () => {
       if(alert){
         updateAlerts(prevAlerts => [alert,...prevAlerts])
       }
-      console.log(JSON.parse(data));
     };
 
     ws.onclose = () => {

@@ -1,14 +1,31 @@
 import React from 'react';
 import { formatTooltip } from '../../utils';
-const Tooltip = ({tooltipData, height}) => {
+const Tooltip = ({tooltipData, height, width}) => {
+    const tooltipWidth = 200;
+    const tooltipHeight = 70
+
+    const xPosition = () => {
+        if(!tooltipData.x) return -100;
+
+        if(width - tooltipData.x <= tooltipWidth){
+            return tooltipData.x - tooltipWidth - 10;
+        }
+        return tooltipData.x + 10;
+    }
+    const yPosition = () => {
+        if(!tooltipData.y) return -100;
+
+        return tooltipData.y + 10;
+    }
+    
     return (
         tooltipData && (
             <g className="tooltip-group">
                 <foreignObject
                         className="tooltip-wrapper"
-                        x={tooltipData.x ? tooltipData.x + 10 : -100} 
-                        y={tooltipData.y ? tooltipData.y + 10 : -100} 
-                        width={200} height={70}>
+                        x={xPosition()}
+                        y={yPosition()} 
+                        width={tooltipWidth} height={tooltipHeight}>
                     <div className="tooltip">
                         <p className="tooltip__load">
                             {
