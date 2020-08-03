@@ -27,6 +27,11 @@ _Please note, if you are using script method, after you stop apps with cmd+c, ba
 
 I used node version 14.2.0, but I guess 10.16.0 or any later version would work.
 
+# Testing CPU load
+
+To test High CPU load you can run
+`bash loadcpu.sh` command and notice how average cpu load will increases
+
 # Technologies
 
 Frontend:

@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Adilzhan Alimbetov",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
