@@ -2,12 +2,16 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { Alerts }  from '../Alerts';
 import { LineChart } from '../Chart';
 import './app.css';
-const ws = new WebSocket('ws://localhost:4444');
+
+const URL = 'ws://localhost:4444';
+const ws = new WebSocket(URL);
 
 const App = () => { 
   const [ cpuData, updateCpuData ] = useState([]);
   const [ alerts, updateAlerts ] = useState([]);
   const current = cpuData[cpuData.length-1];
+
+  //Handling websockets
   useEffect(() => {
     ws.onopen = () => {
       ws.send("connected to websocket");
@@ -29,6 +33,7 @@ const App = () => {
     }
   
   },[]);
+
   return (
     <div className="app-wrapper">
         <div className="title-wrapper">

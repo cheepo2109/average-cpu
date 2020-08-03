@@ -10,9 +10,11 @@ import YAxis from './YAxis';
 import Tooltip from './Tooltip';
 import './linechart.css';
 const LineChart = ({data}) => {
-
+    //ref for chart parent cotainer
     const ref = useRef(null);
+    //ref for chart itself
     const svgRef = useRef(null);
+
     const [ parentWidth, setParentWidth ] = useState(0);
     const [ tooltipData, updateTooltipData] = useState({});
     
@@ -26,6 +28,7 @@ const LineChart = ({data}) => {
     const width = parentWidth - margins.left - margins.right;
     const height = 400 - margins.top - margins.bottom;
 
+    //Scale for X axis
     const xScale = scaleTime()
         .domain(extent(data, d => d.timestamp))
         .range([0, width])
@@ -33,6 +36,7 @@ const LineChart = ({data}) => {
     const maxLoad = max(data, d => d.load);
     const maxDomain = (maxLoad && maxLoad > 1) ? maxLoad : 1;
 
+    //Scale for Y axis
     const yScale = scaleLinear()
         .domain([0,maxDomain])
         .range([height, 0])
@@ -53,7 +57,8 @@ const LineChart = ({data}) => {
         timestamp: "",
         load: 0
     }];
-  
+
+    //On window resize I update width of chart
     useLayoutEffect(()=> {
         const updateParentWidth = () => {
             setParentWidth(ref.current.offsetWidth);
@@ -63,11 +68,14 @@ const LineChart = ({data}) => {
         return () => window.removeEventListener('resize', updateParentWidth);
     },[]) 
 
+    //In this effect I handle tooltips
     useEffect(() => {
         if (svgRef !== null) {
           select(svgRef.current)
             .on("mousemove", function() {
+                //I get x,y position on svg element
                 const [x,y] = mouse(this);
+                //And find data point on the current x
                 const getDataOnTimeline = (mx) => {
                     const bisectDate = bisector(d => d.timestamp).right;
                     const date = xScale.invert(mx).getTime();

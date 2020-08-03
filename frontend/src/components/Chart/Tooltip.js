@@ -6,15 +6,15 @@ const Tooltip = ({tooltipData, height, width}) => {
 
     const xPosition = () => {
         if(!tooltipData.x) return -100;
-
+        //if tooltip is close to the end, revert it, so it doesn't go beyond chart
         if(width - tooltipData.x <= tooltipWidth){
             return tooltipData.x - tooltipWidth - 10;
         }
         return tooltipData.x + 10;
     }
+
     const yPosition = () => {
         if(!tooltipData.y) return -100;
-
         return tooltipData.y + 10;
     }
     
