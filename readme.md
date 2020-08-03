@@ -30,7 +30,7 @@ I used node version 14.2.0, but I guess 10.16.0 or any later version would work.
 # Testing CPU load
 
 To test High CPU load you can run
-`bash loadcpu.sh` command at the root folder and notice how average cpu load will increases
+`bash loadcpu.sh` command at the root folder and notice how average cpu load will increase
 
 # Technologies
 
