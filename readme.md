@@ -82,5 +82,7 @@ For visualizing CPU load, I decided to use `Line` and `Area` charts to show how 
 
   ## Backend
   - I'd improve the way I work with websockets. Right now server doesn't differentiate clients and just accepts any incoming connection/message. I'd even go for Apollo Server, so I could provide Graphql Subcriptions to the frontend.
+  - I'd make load observer stateless and let it just observe the load and handle alerting
   - I'd persist data and cache everything
   - I could also send alerts in different ways like email/push notification/sms etc.
+  
