@@ -5,11 +5,11 @@ const Alerts = ({alerts}) => {
     const messages = {
       warning: {
         message: "High CPU usage",
-        time: "Started at"
+        time: "Stress started at"
       },
       recovery: {
         message: "CPU recovered",
-        time: "High load finished at"
+        time: "Started feeling better at"
       }
     }
     return (

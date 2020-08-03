@@ -14,9 +14,10 @@ const INTERVAL = 10000;
 
 wss.on('connection', (ws) => {
     console.log("Received connection");
+    let interval;
     ws.on('message', () => {
         console.log("Received Message");
-        setInterval(() => {
+        interval = setInterval(() => {
             const { currentCPUInfo, alert } = loadObserver.getIntervalInfo();
             ws.send(JSON.stringify({
                 currentCPUInfo,
@@ -26,6 +27,7 @@ wss.on('connection', (ws) => {
     })
     ws.on('close', function () {
         console.log('stopping client interval');
+        clearInterval(interval);
         loadObserver.clear();
         ws.terminate();
     });
