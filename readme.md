@@ -67,7 +67,7 @@ The most important part - data visualization with d3. There are several ways to 
 
 I decided to go with the third option, by wrapping d3 functions in useEffect hook. Based on [Smashing Magazine's](https://www.smashingmagazine.com/2018/02/react-d3-ecosystem/) opinion, this method gives us a lightweight react component that can easily integrate with d3 api. Sounds like a win-win for me. The only drawback of this method is that server-side rendering is not possible (To be honest, I haven't tested this idea).
 
-For visualizing CPU load, I decided to use `Line` and `Area` charts to show how cpu changed over time. Even though graph is already already shows how CPU load changed over time, I use to tooltip to show each datapoint at certain time.
+For visualizing CPU load, I decided to use `Line` and `Area` charts to show how cpu changed over time. Even though the graph already shows how CPU load changed over time, I use to tooltip to show each datapoint at a certain time.
 
 
 # Further Improvements
