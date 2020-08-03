@@ -41,6 +41,7 @@ Frontend:
 Backend:
 - Express
 - Web Sockets (ws)
+- Jest for testing
 
 # Approach
 
