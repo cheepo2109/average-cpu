@@ -1,6 +1,8 @@
 #!/bin/bash
-duration=160    # seconds
-#instances=8     # cpus
+#sometimes cpu needs some time to go above average,
+#so giving it extra seconds
+duration=200  # seconds
+#instances=8  # cpus
 instances=$([ $(uname) = 'Darwin' ] && 
                        sysctl -n hw.logicalcpu_max || 
                        lscpu -p | egrep -v '^#' | wc -l)
