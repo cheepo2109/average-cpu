@@ -1,4 +1,4 @@
-import React, { useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import { select } from 'd3-selection';
 
 const Line = ({ data, lineGenerator, initialData }) => {
