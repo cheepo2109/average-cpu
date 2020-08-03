@@ -42,7 +42,7 @@ const App = () => {
                 <h1> Looks like you just started the app!</h1>
                 <h2>Please wait. Data about your CPU load will appear shortly. *Elevator music*</h2>
               </Fragment>
-            : <h1>Your current CPU load is {current.load}</h1>
+            : <h1>Your current average CPU load is {current.load}</h1>
           }
         </div>
       <LineChart data={cpuData}/>
