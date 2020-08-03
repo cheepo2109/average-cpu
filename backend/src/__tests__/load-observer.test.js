@@ -132,7 +132,7 @@ describe('getAlert', () => {
         expect(alert).toMatchObject({ type: 'warning', timestamp: 1596123545035 })
     });
 
-    it('should return alert with message that cpu is recovered if average cpu load was lower than 1 for 2 minutes', () => {
+    it('should return alert with the correct type if average cpu load was lower than 1 for 2 minutes after a heavy load', () => {
 
         const arrayOfHighCPUObjects = [
             { load: 1.1, timestamp: 1596123545035 },
@@ -194,7 +194,7 @@ describe('getIntervalInfo', () => {
          jest.restoreAllMocks()
      });
  
-    it('should return data about CPU load during normal conditions', () => {
+    it('should return data about CPU load', () => {
         const { currentCPUInfo, alert } = loadObserver.getIntervalInfo();
         expect(currentCPUInfo).toMatchObject({ load: 0.3, timestamp: 1596123545035 });
         expect(alert).toBe(null);
