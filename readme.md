@@ -7,7 +7,7 @@ Frontend receives information about computer load every 10 seconds and keeps his
 
 # How to run
 
-There's 2 way you can run this project (I prefer first one)
+There's 2 ways you can run this project (I prefer first one)
 
 **Manually** 
 1. Install dependencies in each folder separately \

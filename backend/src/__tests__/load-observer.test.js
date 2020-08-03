@@ -1,5 +1,4 @@
 const os = require('os');
-const nativeLoadavg = os.loadavg
 const loadObserver = require('../load-observer');
 
 
