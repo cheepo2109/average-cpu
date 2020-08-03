@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { select } from "d3-selection";
 import { axisRight } from "d3-axis";
 const YAxis = ({ scale, width}) => {
-
     const ref = useRef(null);
 
     useEffect(() => {

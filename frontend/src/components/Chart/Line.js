@@ -28,4 +28,3 @@ const Line = ({ data, lineGenerator, initialData }) => {
 }
 
 export default Line;
-//  <line d={lineGenerator(data) />
