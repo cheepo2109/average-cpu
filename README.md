@@ -3,6 +3,8 @@
 Simple load monitoring application.
 Frontend receives information about computer load every 10 seconds and keeps history up to 10 minutes. 
 
+![Screenshot from app](./system.png "App screenshot")
+
 # How to run
 
 There's 2 way you can run this project.
@@ -11,6 +13,7 @@ There's 2 way you can run this project.
 1. Install dependencies in each folder separately \
   1.1 cd backend `npm install` \
   1.2 cd frontend `yarn install` 
+
 2. Run each project separately \
    2.1  cd backend `npm start` \
    2.2. cd frontend `yarn start`
@@ -19,6 +22,8 @@ There's 2 way you can run this project.
 
 1. At the root folder run `npm run setup`
 2. After installation run `npm run start`
+
+_Please note, if you are using script method, after you stop apps with cmd+c, backend process might still be running_
 
 I used node version 14.2.0, but I guess 10.16.0 or any later version would work.
 
