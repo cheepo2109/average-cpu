@@ -73,7 +73,13 @@ For visualizing CPU load, I decided to use `Line` and `Area` charts to show how 
 # Further Improvements
 
   ## Frontend
-  - Better D3 integration
-  - 
+  - Better websocket integration. Right now app doesn't reconnect with backend after loosing a connection. I'd probably use a different approach, using graphql subscriptions. Underneath they also use websockets, and if I used Apollo client, I'd have a state management tool, ease of cache and and better api for the frontend.
+  - Better D3 integration. Even though I'm happy with the approach I chose, I think it can be more performant. For example, in my current implementation I calculate tooltip on every hover. I probably can store all the calculated data, to reduce amount of recalculations.
+  - Move from create-react-app, to a custom build. CRA is very opiniated and sometimes brings more troubles than simplicity. With own bundle build we can take control of how we serve frontend
+  - Move from simple css, to something more complex like sass or css-in-js (that allows us precompile to just css to avoid loading during runtime)
+  - I'd add chart alternative, table for example, for a11y purposes. Having graphs is nice, but for screen reader users, table would probably be a better alternative
+
   ## Backend
-  - 
+  - I'd improve the way I work with websockets. Right now server doesn't differentiate clients and just accepts any incoming connection/message. I'd even go for Apollo Server, so I could provide Graphql Subcriptions to the frontend.
+  - I'd persist data and cache everything
+  - I could also send alerts in different ways like email/push notification/sms etc.
